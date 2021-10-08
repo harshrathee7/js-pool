@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Prompts</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap:18px;
+        }
+        .btn{
+            width: 130px;
+            cursor: pointer;
+            height: 39px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <button class="alert btn">Alert</button>
+    <button class="confirm btn">Confirm</button>
+    <button class="prompt btn">Prompt</button>
+   </div>
+
+   <script>
+       // prompts in javascript having three types 
+       //1 alert() = >alert or pop up a message or js expression
+       //2 confirm() = >for returning boolean based on user seection
+       //3 prompt() = >asking for input from the user in input field
+
+
+
+       const alert_btn = document.querySelector('.alert');
+       const confirm_btn = document.querySelector('.confirm')
+       const prompt_btn = document.querySelector('.prompt')
+
+       alert_btn.addEventListener('click',()=>{
+           alert("Thanks for alerting!");
+       })
+
+       confirm_btn.addEventListener('click',()=>{
+           const is_close = confirm("Are you sure to close this window?")
+           if(is_close){
+               return window.close();
+           }
+
+       })
+
+       prompt_btn.addEventListener('click',()=>{
+           let name = prompt("What is Your Good Name?")
+           alert(`${name} thanks for providing your name!`)
+       });
+   </script>
+</body>
+</html>
