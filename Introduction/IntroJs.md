@@ -36,6 +36,6 @@ For instance, in-browser JavaScript is able to:
 
 - Add new HTML to the page, change the existing content, modify styles.
 - React to user actions, run on mouse clicks, pointer movements, key presses.
-- Send requests over the network to remote servers, download and upload files (so-called AJAX and COMET technologies).
+- Send requests over the network to remote servers, download and upload filIes (so-called AJAX and COMET technologies).
 - Get and set cookies, ask questions to the visitor, show messages.
 - Remember the data on the client-side (“local storage”).
