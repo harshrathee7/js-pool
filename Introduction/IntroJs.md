@@ -18,6 +18,6 @@ In this aspect, JavaScript is very different from another language called [Java]
 
 'Different engines have different “codenames”. For example:'
 
-- ['V8'](<'https://en.wikipedia.org/wiki/V8_(JavaScript_engine)'>) - in Chrome and Opera
+- [V8](<'https://en.wikipedia.org/wiki/V8_(JavaScript_engine)'>) - in Chrome and Opera
 
-- ['SpiderMonkey']('https://en.wikipedia.org/wiki/SpiderMonkey') - In Firefox
+- [SpiderMonkey]('https://en.wikipedia.org/wiki/SpiderMonkey') - In Firefox
