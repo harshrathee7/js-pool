@@ -12,7 +12,7 @@ Developer tools are potent; they have many features. To start, we’ll learn how
 
 ### Google Chrome
 
-Open the page [bug.html.](https://javascript.info/article/devtools/bug.html)
+Open the page [bug.html.](https://github.com/Ammyy9908/js-pool/raw/master/Introduction/bug.html)
 
 There’s an error in the JavaScript code on it. It’s hidden from a regular visitor’s eyes, so let’s open developer tools to see it.
 
