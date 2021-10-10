@@ -43,7 +43,9 @@ A handler can be set in HTML with an attribute named on<event>.
 
 For instance, to assign a click handler for an input, we can use onclick, like here:
 
-`<input value="Click me" onclick="alert('Click!')" type="button">`
+```html
+<input value="Click me" onclick="alert('Click!')" type="button" />
+```
 
 On mouse click, the code inside onclick runs.
 
@@ -63,4 +65,126 @@ Here a click runs the function countRabbits():
 </script>
 
 <input type="button" onclick="countRabbits()" value="Count rabbits!" />
+```
+
+As we know, HTML attribute names are not case-sensitive, so ONCLICK works as well as onClick and onCLICK… But usually attributes are lowercased: onclick.
+
+### DOM property
+
+We can assign a handler using a DOM property on<event>.
+
+For instance, elem.onclick:
+
+```html
+<input id="elem" type="button" value="Click me" />
+<script>
+  elem.onclick = function () {
+    alert("Thank you");
+  };
+</script>
+```
+
+f the handler is assigned using an HTML-attribute then the browser reads it, creates a new function from the attribute content and writes it to the DOM property.
+
+So this way is actually the same as the previous one.
+
+These two code pieces work the same:
+
+1. Only HTML:
+
+```html
+<input type="button" onclick="alert('Click!')" value="Button" />
+```
+
+2. HTML+JS
+
+```html
+<input type="button" id="button" value="Button" />
+<script>
+  button.onclick = function () {
+    alert("Click!");
+  };
+</script>
+```
+
+In the first example, the HTML attribute is used to initialize the button.onclick, while in the second example – the script, that’s all the difference.
+
+<strong>As there’s only one onclick property, we can’t assign more than one event handler.</strong>
+
+In the example below adding a handler with JavaScript overwrites the existing handler:
+
+```html
+<input type="button" id="elem" onclick="alert('Before')" value="Click me" />
+<script>
+  elem.onclick = function () {
+    // overwrites the existing handler
+    alert("After"); // only this will be shown
+  };
+</script>
+```
+
+To remove a handler – assign elem.onclick = null.
+
+#### Accessing the element: this
+
+The value of `this` inside a handler is the element. The one which has the handler on it.
+
+In the code below `button` shows its contents using `this.innerHTML`:
+
+```html
+<button onclick="alert(this.innerHTML)">Click me</button>
+```
+
+##### Possible mistakes
+
+If you’re starting to work with events – please note some subtleties.
+
+We can set an existing function as a handler:
+
+```js
+function sayThanks() {
+  alert("Thanks!");
+}
+
+elem.onclick = sayThanks;
+```
+
+But be careful: the function should be assigned as `sayThanks`, not `sayThanks()`.
+
+```js
+// right
+button.onclick = sayThanks;
+
+// wrong
+button.onclick = sayThanks();
+```
+
+If we add parentheses, then `sayThanks()` becomes is a function call. So the last line actually takes the result of the function execution, that is `undefined` (as the function returns nothing), and assigns it to `onclick`. That doesn’t work.
+
+…On the other hand, in the markup we do need the parentheses:
+
+```html
+<input type="button" id="button" onclick="sayThanks()" />
+```
+
+The difference is easy to explain. When the browser reads the attribute, it creates a handler function with body from the attribute content.
+
+So the markup generates this property:
+
+```js
+button.onclick = function () {
+  sayThanks(); // <-- the attribute content goes here
+};
+```
+
+##### Don’t use setAttribute for handlers.
+
+Such a call won’t work:
+
+```js
+// a click on <body> will generate errors,
+// because attributes are always strings, function becomes a string
+document.body.setAttribute("onclick", function () {
+  alert(1);
+});
 ```
