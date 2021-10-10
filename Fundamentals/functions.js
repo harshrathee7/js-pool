@@ -8,7 +8,7 @@
 // syntax
 
 /* 
- function <function name>(<expression>:optional){
+ function <function name>(<...params>:optional){
      //block statement comes here
  }
  */
@@ -83,3 +83,35 @@ function modifyAge(newAge) {
 
 const modified_age = modifyAge(37);
 console.log(`New age => ${modified_age}`);
+
+// in modern JS we got another form of function called arrow function
+
+/* Syntax
+
+const func_name = (<...params>)=>{
+    block statements
+}
+ */
+
+// arrow function when we have only single statement to execute
+
+const func1 = () => console.log("Single statement arrow function");
+
+// arrow function when we  have only one  param
+
+const func2 = (user) => console.log("Hello ", user);
+
+// arrow function we have have single return statement we can ommit return keyword
+
+const func3 = (name) => "hello " + name;
+
+// arrow function when we have multiple params & multiple statements
+
+const func4 = (name, age) => {
+  console.log("Hello " + name + " Your age is " + age);
+};
+
+func1();
+func2("sammy");
+console.log(func3("sumit"));
+func4("sumit", 24);
