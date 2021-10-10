@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+
+    <style>
+        body {
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items:center;
+            justify-content:center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>right click>inspect>console</h1>
+    </div>
+    <script>
+        fetch('https://api.github.com/repos/Ammyy9908/js-pool/commits')
+  .then(response => response.json())
+  .then(commits => console.log(commits));
+
+  // Response headers
+
+
+  async function get_response_header(){
+    let response = await fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits',{
+        headers:{
+            "Authorization":"secret"
+        }
+    });
+    return response;
+  }
+
+  get_response_header().then((response)=>{
+      console.log(response.headers.get('Content-Type'));
+
+      for (let [key, value] of response.headers) {
+    console.log(`${key} = ${value}`);
+
+    
+}
+  })
+
+
+
+  // Request headers
+
+
+  /*
+  let response = fetch(protectedUrl, {
+  headers: {
+    Authentication: 'secret'
+  }
+});
+  */
+
+
+  
+  /*
+Accept-Charset, Accept-Encoding
+Access-Control-Request-Headers
+Access-Control-Request-Method
+Connection
+Content-Length
+Cookie, Cookie2
+Date
+DNT
+Expect
+Host
+Keep-Alive
+Origin
+Referer
+TE
+Trailer
+Transfer-Encoding
+Upgrade
+Via
+Proxy-*
+Sec-*
+  */
+
+
+
+    </script>
+</body>
+</html>
