@@ -42,3 +42,10 @@ console.log(Math.floor(3.5));
 console.log(Math.ceil(3.5));
 
 console.log(Math.round(3.5));
+
+// determines if provided value is a number
+console.log(Number.isFinite(123)); // true
+console.log(Number.isFinite(123.45)); // true
+console.log(Number.isFinite('123')); // false
+console.log(Number.isFinite('abc')); // false
+console.log(Number.isFinite(Infinity)); // false
