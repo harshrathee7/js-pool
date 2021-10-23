@@ -40,7 +40,9 @@
         console.error(error);
       }
     }()).then((response) => {
-      // console.log(response)
+      
+      const {data} = response;
+      console.log(data)
       console.log(response.headers);
     }).catch(
       rejectException => console.log(rejectException)
