@@ -3,7 +3,7 @@ characters enclosed in single (''),double ("") quotes and template literals
 to do string interpolation.
 */
 
-let f_name = "Sumit";
+let f_name = "Shakti";
 let position = "Full Stack Web Developer";
 console.log(f_name);
 
