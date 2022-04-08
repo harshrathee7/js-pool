@@ -3,15 +3,14 @@ characters enclosed in single (''),double ("") quotes and template literals
 to do string interpolation.
 */
 
-let f_name = "Shakti";
+let f_name = `Shakti`;
 let position = "Full Stack Web Developer";
-console.log(f_name);
 
 f_name = "Sumit";
 
 console.log(f_name);
-
-console.log(f_name == "sumit"); // false
+console.log(f_name == "Sumit"); // false
+console.log(1 === 2); // true
 
 /* string interpolation:where we can 
 concatenate strings with variables or 
@@ -45,7 +44,9 @@ console.log("Sumit"[0]); // S
 // get a character from a position using charAt
 
 console.log("Sumit".charAt(0)); // S
-
+let fname = "Sumit";
+let lname = "Kumar";
+console.log(fname.charAt(0) + lname.charAt(0)); // SK
 // we can also iterate a string like array using for loops
 for (let char of "Sumit") {
   console.log(char);
@@ -68,10 +69,9 @@ console.log(my_name); // unchanged:-remains Sumit
 
 console.log(my_name.toUpperCase());
 console.log(my_name.toLowerCase());
-
 // Search for the substring
 
-console.log("Sumit".indexOf("Su")); // 0
+console.log("Sumit".indexOf("mi")); // 2
 
 console.log("Sumit".indexOf("am")); // -1
 
